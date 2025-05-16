@@ -43,16 +43,17 @@ APPS = [
     
     # Makes reference to play-pause script
     # You can find it in my scripts repository
-    ([ALTGR],    "space", " playerctl play-pause"),
+    ([ALTGR] , SPACE, " playerctl play-pause"),
    
     # Run "rofi-theme-selector" in terminal to select a theme
-    ([MOD], "space", run("rofi.sh")),
+    ([MOD], 'a', run("rofi.sh")),
     ([MOD], "w", run("wallselect.sh")),
 
     # Terminal apps
     ([MOD, ALT], "n", TERMINAL + " -e nvim"),
 
     
+    ([ALT], SPACE, LAUNCHER),
     ([MOD], "p", "flameshot gui"),
     ([MOD], "v", "clipcat-menu --rofi-menu-length 10"),
 ]

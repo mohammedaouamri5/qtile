@@ -12,7 +12,7 @@ ALT = "mod1"
 ALTGR = "mod5"
 SHIFT = "shift"
 CONTROL = "control"
-
+SPACE = "space"
 # Basic wm bindings
 
 # All of these variables include the MOVEMENT_KEYS at the start
@@ -73,7 +73,7 @@ HOME = expanduser("~")
 TERMINAL = "konsole"
 FILE_EXPLORER = "dolphin"
 BROWSER = "firefox-nightly"
-
+LAUNCHER = 'krunner'
 SCRIPTS_DIR = path.join(HOME , ".scripts") 
     
 

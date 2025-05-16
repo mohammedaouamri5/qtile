@@ -20,6 +20,7 @@ from libqtile import hook, layout
 from libqtile.config import Group, Match
 
 # Local Files
+from const import LAUNCHER
 from keys.keybindings import Mouse,Keybindings
 
 from widgets import MyWidgets
@@ -76,6 +77,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class=LAUNCHER),
 ])
 auto_fullscreen = True
 
