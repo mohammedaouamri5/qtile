@@ -13,6 +13,8 @@ from functions import PWA
 
 # extension_defaults = widget_defaults.copy()
 
+def search():
+    qtile.cmd_spawn("rofi.sh")
 
 class MyWidgets:
     def __init__(self):
@@ -189,6 +191,7 @@ class MyWidgets:
                 background=self.colors[8]
             ),
         ]
+
         return widgets_list
 
     def init_widgets_screen(self):
@@ -207,10 +210,205 @@ class MyWidgets:
         widgets_screen2 = self.init_widgets_screen()
         return widgets_screen2
 
+    def get_bar(self): 
+        return  bar.Bar( [
+                widget.Spacer(length=15,
+                    background='#232A2E',
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/launch_Icon.png',
+                    margin=2,
+                    background='#232A2E',
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/6.png',
+                ),
+
+                widget.GroupBox(
+                    font="JetBrainsMono Nerd Font",
+                    fontsize=24,
+                    borderwidth=3,
+                    highlight_method='block',
+                    active='#86918A',
+                    block_highlight_text_color="#D3C6AA",
+                    highlight_color='#4B427E',
+                    inactive='#232A2E',
+                    foreground='#4B427E',
+                    background='#343F44',
+                    this_current_screen_border='#343F44',
+                    this_screen_border='#343F44',
+                    other_current_screen_border='#343F44',
+                    other_screen_border='#343F44',
+                    urgent_border='#343F44',
+                    rounded=True,
+                    disable_drag=True,
+                ),
+
+                widget.Spacer(
+                    length=8,
+                    background='#343F44',
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/1.png',
+                ),
+
+
+                widget.CurrentLayoutIcon(
+                    custom_icon_paths=["~/.config/qtile/Assets/layout"],
+                    background='#343F44',
+                    scale=0.50,
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/5.png',
+                ),
+
+                widget.TextBox(
+                    text=" ",
+                    font="Font Awesome 6 Free Solid",
+                    fontsize=13,
+                    background='#232A2E',
+                    foreground='#86918A',
+                    mouse_callbacks={"Button1": search},
+                ),
+
+                widget.TextBox(
+                    fmt='Search',
+                    background='#232A2E',
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                    foreground='#86918A',
+                    mouse_callbacks={"Button1": search},
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/4.png',
+                ),
+
+                widget.WindowName(
+                    background='#343F44',
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                    empty_group_string="Desktop",
+                    max_chars=130,
+                    foreground='#86918A',
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/3.png',
+                ),
+
+                widget.Systray(
+                    background='#232A2E',
+                    fontsize=2,
+                ),
+
+                widget.TextBox(
+                    text=' ',
+                    background='#232A2E',
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/6.png',
+                    background='#343F44',
+                ),
+
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 6 Free Solid",
+                    fontsize=13,
+                    background='#343F44',
+                    foreground='#86918A',
+                ),
+
+                widget.Memory(
+                    background='#343F44',
+                    format='{MemUsed: .0f}{mm}',
+                    foreground='#86918A',
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                    update_interval=5,
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/2.png',
+                ),
+
+                widget.Spacer(
+                    length=8,
+                    background='#343F44',
+                ),
+
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/2.png',
+                ),
+
+                widget.Spacer(
+                    length=8,
+                    background='#343F44',
+                ),
+
+                widget.TextBox(
+                    text=" ",
+                    font="Font Awesome 6 Free Solid",
+                    fontsize=13,
+                    background='#343F44',
+                    foreground='#86918A',
+                ),
+
+                widget.Volume(
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                    background='#343F44',
+                    foreground='#86918A',
+                ),
+
+                widget.Image(
+                    filename='~/.config/qtile/Assets/5.png',
+                    background='#343F44',
+                ),
+
+                widget.TextBox(
+                    text=" ",
+                    font="Font Awesome 6 Free Solid",
+                    fontsize=13,
+                    background='#232A2E',
+                    foreground='#86918A',
+                ),
+
+                widget.Clock(
+                    format='%I:%M %p',
+                    background='#232A2E',
+                    foreground='#86918A',
+                    font="JetBrainsMono Nerd Font Bold",
+                    fontsize=13,
+                ),
+
+                widget.Spacer(
+                    length=18,
+                    background='#232A2E',
+                ),
+
+            ],
+            30,
+            border_color='#282738',
+            border_width=[0,0,0,0],
+            margin=[1,1,1,1],
+
+        )
     def init_screen(self):
         '''
         Init the widgets in the screen
         '''
+
+        return [Screen(top=self.get_bar() ),
+                Screen(top=bar.Bar(
+                    widgets=self.init_widgets_screen2(), opacity=1.0, size=20))
+                ]
         return [Screen(top=bar.Bar(widgets=self.init_widgets_screen(), opacity=1.0, size=20)),
                 Screen(top=bar.Bar(
                     widgets=self.init_widgets_screen2(), opacity=1.0, size=20))

@@ -98,7 +98,7 @@ class Keybindings:
         move_prev_screen = Key(mod , PREV_GROUP, lazy.next_screen()) 
 
         magic_swap = Key(mod+swap_modifier, MAGIC_KEY, Functions.magic_swap()) 
-        magic_move = Key(mod+modifier, MAGIC_KEY, Functions.magic_move()) 
+        magic_move = Key(mod, MAGIC_KEY, Functions.magic_move()) 
 
         self.keys += [magic_move ,magic_swap , move_next, move_prev, swap_next, swap_prev, move_next_screen, move_prev_screen]
 

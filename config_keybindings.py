@@ -49,6 +49,8 @@ APPS = [
     ([MOD], 'a', run("rofi.sh")),
     ([MOD], "w", run("wallselect.sh")),
 
+
+    ([MOD], SPACE, run("chmap")),
     # Terminal apps
     ([MOD, ALT], "n", TERMINAL + " -e nvim"),
 
