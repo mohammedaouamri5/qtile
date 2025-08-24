@@ -72,7 +72,7 @@ HOME = expanduser("~")
 # Define constants here
 TERMINAL = "konsole"
 FILE_EXPLORER = "dolphin"
-BROWSER = "firefox-nightly"
+BROWSER = "firefox"
 LAUNCHER = 'krunner'
 SCRIPTS_DIR = path.join(HOME , ".scripts") 
     

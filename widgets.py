@@ -157,14 +157,14 @@ class MyWidgets:
             #     padding=0,
             #     fontsize=37
             # ),
-            widget.CurrentLayoutIcon(
-                custom_icon_paths=[os.path.expanduser(
-                    "~/.config/qtile/icons")],
-                foreground=self.colors[0],
-                background=self.colors[9],
-                padding=0,
-                scale=0.7
-            ),
+            #widget.CurrentLayoutIcon(
+            #    custom_icon_paths=[os.path.expanduser(
+            #        "~/.config/qtile/icons")],
+            #    foreground=self.colors[0],
+            #    background=self.colors[9],
+            #    padding=0,
+            #    scale=0.7
+            #),
             widget.CurrentLayout(
                 foreground=self.colors[7],
                 background=self.colors[9],
@@ -256,11 +256,11 @@ class MyWidgets:
                 ),
 
 
-                widget.CurrentLayoutIcon(
-                    custom_icon_paths=["~/.config/qtile/Assets/layout"],
-                    background='#343F44',
-                    scale=0.50,
-                ),
+                #                widget.CurrentLayoutIcon(
+                #                    custom_icon_paths=["~/.config/qtile/Assets/layout"],
+                #                    background='#343F44',
+                #                    scale=0.50,
+                #                ),
 
                 widget.Image(
                     filename='~/.config/qtile/Assets/5.png',
@@ -405,9 +405,9 @@ class MyWidgets:
         Init the widgets in the screen
         '''
 
-        return [Screen(top=self.get_bar() ),
-                Screen(top=bar.Bar(
-                    widgets=self.init_widgets_screen2(), opacity=1.0, size=20))
+        return [
+            Screen(top=bar.Bar( widgets=self.init_widgets_screen2(), opacity=1.0, size=20)), 
+            Screen(top=bar.Bar( widgets=self.init_widgets_screen2(), opacity=1.0, size=20)), 
                 ]
         return [Screen(top=bar.Bar(widgets=self.init_widgets_screen(), opacity=1.0, size=20)),
                 Screen(top=bar.Bar(

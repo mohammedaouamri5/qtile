@@ -44,6 +44,8 @@ APPS = [
     # Makes reference to play-pause script
     # You can find it in my scripts repository
     ([ALTGR] , SPACE, " playerctl play-pause"),
+    ([ALTGR] , "Up", " playerctl next"),
+    ([ALTGR] , "Down", " playerctl prev"),
    
     # Run "rofi-theme-selector" in terminal to select a theme
     ([MOD], 'a', run("rofi.sh")),
